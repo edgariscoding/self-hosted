@@ -10,7 +10,7 @@ if [[ "$MINIMIZE_DOWNTIME" ]]; then
     -c 'while [[ "$(wget -T 1 -q -O- http://web:9000/_health/)" != "ok" ]]; do sleep 0.5; done'
 
   # Make sure everything is up. This should only touch relay and nginx
-  $dc up -d
+  $dc up -d --no-recreate
 
   echo "${_endgroup}"
 else
