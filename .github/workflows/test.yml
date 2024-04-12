@@ -110,7 +110,7 @@ jobs:
           command: ./install.sh
 
       - name: Integration Test
-        run: pytest --cov --junitxml=junit.xml --reruns 3 _integration-test/ --customizations=${{ matrix.customizations }}
+        run: pytest --cov --junitxml=junit.xml _integration-test/ --customizations=${{ matrix.customizations }}
 
       - name: Inspect failure
         if: failure()
