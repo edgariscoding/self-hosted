@@ -20,6 +20,6 @@ def test_import(setup_backup_restore_env_variables):
     subprocess.run(["docker", "volume", "rm", "sentry-postgres"], check=True)
     subprocess.run(["docker", "volume", "create", "--name=sentry-postgres"], check=True)
     subprocess.run(["docker", "compose", "--ansi", "never", "run", "web", "upgrade", "--noinput"], check=True)
-    subprocess.run(["docker", "compose", "--ansi", "never", "up", "-d" "--no-recreate"], check=True, capture_output=True)
+    subprocess.run(["docker", "compose", "--ansi", "never", "up", "-d", "--no-recreate"], check=True, capture_output=True)
     sentry_admin_sh = os.path.join(os.getcwd(), 'sentry-admin.sh')
     subprocess.run([sentry_admin_sh, "import", "global", "/sentry-admin/backup.json", "--no-prompt"], check=True)
