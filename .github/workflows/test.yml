@@ -85,9 +85,9 @@ jobs:
 
             # This records failures on master to sentry in order to detect flakey tests, as it's
             # expected that people have failing tests on their PRs
-            if [ "$GITHUB_REF" = "refs/heads/master" ]; then
-              echo "PYTEST_SENTRY_ALWAYS_REPORT=1" >> $GITHUB_ENV
-            fi
+            # if [ "$GITHUB_REF" = "refs/heads/master" ]; then
+            echo "PYTEST_SENTRY_ALWAYS_REPORT=1" >> $GITHUB_ENV
+            # fi
           fi
 
       - name: Get Compose
